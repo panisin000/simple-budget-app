@@ -23,6 +23,9 @@ export class RequirementApprovalComponent {
     //ถ้า requirements ไหน = Approve ให้ เอา (...v ฟิวส์ เดิมทุกอัน)  เปลี่ยน status: "A" แต่ถ้าไม่ใช่ ให้ (...v ฟิวส์ เดิมทุกอัน)
   }
   onReject(id: number): void {
+    // ถ้า requirement ตัวไหนคือตัวที่ approve v.id === id
+           // ให้เอา field เดิมทุก field แลัวเขียน status ทับด้วย A
+           // แต่ถ้าไม่ใช่ ให้เอา field เดิมทุก field เหมือนเดิม
     this.requirementService.rejectRequirement(id).subscribe(() => (this.requirements = this.requirements.map((v) => v.id === id ? { ...v, status: "R" } : { ...v })));
     //ถ้า requirements ไหน = Approve ให้ เอา (...v ฟิวส์ เดิมทุกอัน)  เปลี่ยน status: "A" แต่ถ้าไม่ใช่ ให้ (...v ฟิวส์ เดิมทุกอัน)
   }
