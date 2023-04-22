@@ -1,5 +1,5 @@
-<h1>requirement-list works!</h1>
-<table class="table table-hover">
+<h2>requirement-list works!</h2>
+<table class="table table-hover table-sm" [ngClass]="{'table-sm': isSmallTable.value}">
     <thead>
         <tr>
             <!-- <th>Edit</th>
@@ -10,9 +10,9 @@
         </tr>
     </thead>
     <tbody>
-        <!-- <tr *ngIf="!requirements"> -->
+        <tr *ngIf="!requirements">
         <tr *ngIf="requirements.length===0">
-            <td colspan="3">No data</td>
+            <!-- <td colspan="3">No data</td> -->
         </tr>
         <tr *ngFor="let r of requirements">
             <td>{{r.id}}</td>
@@ -21,3 +21,8 @@
         </tr>
     </tbody>
 </table>
+<h1>{{isSmallTable.value }}</h1>
+<label for="makeSmall">
+    <input type="checkbox" id="makeSmall" [formControl]="isSmallTable" />
+    Make small table
+</label>
