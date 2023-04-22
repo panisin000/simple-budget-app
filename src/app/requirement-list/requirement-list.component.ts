@@ -28,5 +28,8 @@ export class RequirementListComponent implements OnInit {
   onAdd(): void {
     this.router.navigate(["/requirement-form"]);
   }
+  onDelete(id: number): void {
+    this.requirementService.delelteRequirement(id).subscribe(rs => this.requirements = this.requirements.filter(v => v.id != id)); //reload data อย่าลืม subscribe ด้วยทุกครั้ง
+  }
 }
 

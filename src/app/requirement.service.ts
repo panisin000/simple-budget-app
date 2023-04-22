@@ -27,4 +27,8 @@ export class RequirementService {
     const url = 'http://localhost:3000/requirements';
     return this.httpClient.post<Requirement>(url, newRequirement);
   }
+  delelteRequirement(id: number): Observable<void>{
+    const url = 'http://localhost:3000/requirements';
+    return this.httpClient.delete<void>(`${url}/${id}`);
+  }
 }
