@@ -3,6 +3,7 @@ import { Requirement } from '../requirement';
 import { RequirementService } from '../requirement.service';
 import { FormControl } from '@angular/forms';
 import { mobileFormat } from '../mobile-format';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,9 @@ export class RequirementListComponent implements OnInit {
   requirements: Requirement[] = []
 
   isSmallTable = new FormControl(false);
-  constructor(private requirementService: RequirementService) {
+  constructor(
+    private router: Router,
+    private requirementService: RequirementService) {
     // this.requirements = requirementService.getRequirement();
     // requirementService.getRequirement().subscribe(rs => this.requirements = rs);
   }
@@ -22,6 +25,8 @@ export class RequirementListComponent implements OnInit {
     this.requirementService.getRequirement().subscribe(rs => this.requirements = rs);
   }
 
-
+  onAdd(): void {
+    this.router.navigate(["/requirement-form"]);
+  }
 }
 

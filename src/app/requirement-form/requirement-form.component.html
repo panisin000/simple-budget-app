@@ -1,4 +1,4 @@
-<h1>requirement-form works!</h1>
+<h2>requirement-form works!</h2>
 <!-- debug: {{fg.value|json}} -->
 <div class="w-75">
     <form [formGroup]="fg">
@@ -27,6 +27,6 @@
         <button type="submit" class="btn btn-primary ms-3" [disabled]="!fg.valid" (click)="onSubmit()">
             Submit
         </button>
-        <button class="btn btn-secondary ms-2">Cancel</button>
+        <button class="btn btn-secondary ms-2" (click)="onBack()">Cancel</button>
     </form>
 </div>
