@@ -17,7 +17,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class RequirementFormComponent implements OnInit {
   title = new FormControl("", Validators.required)
   contactMobileNo = new FormControl("", [Validators.required, thMobile])
-
+  editId = 0;
   fg = new FormGroup({
 
     title: this.title,
@@ -29,17 +29,27 @@ export class RequirementFormComponent implements OnInit {
     private router: Router,
     private requirementService: RequirementService) { }
   ngOnInit(): void {
-    const editId = Number(this.route.snapshot.paramMap.get('id'))
-    console.log('paramMap id', editId)
+    this.editId = Number(this.route.snapshot.paramMap.get('id'))
+    console.log('paramMap id', this.editId)
     //if found id => edit mode
-    if (editId) {
-      this.requirementService.getRequirementById(editId).subscribe((v) => this.fg.patchValue(v));  //check key ที่ตรงกันให้อัตโนมัติ
+    if (this.editId) {
+      this.requirementService.getRequirementById(this.editId).subscribe((v) => this.fg.patchValue(v));  //check key ที่ตรงกันให้อัตโนมัติ
     }
   }
   onSubmit(): void {
-    // prepare data for API
-    const newRequirement = this.fg.value as Requirement;
-    this.requirementService.addRequirement(newRequirement).subscribe((v) => this.router.navigate(["/requirement-list"]));
+    // const newRequirement = this.fg.value as Requirement;
+    if (this.editId) {
+      const editRequirement = this.fg.value as Requirement;
+      this.requirementService
+        .editRequirement(this.editId, editRequirement)
+        .subscribe(() => this.router.navigate(['/requirement-list']));
+    } else {
+      // prepare data for API
+      const newRequirement = this.fg.value as Requirement;
+      this.requirementService
+        .addRequirement(newRequirement)
+        .subscribe(() => this.router.navigate(['/requirement-list']));
+    }
   }
   onBack(): void {
     this.router.navigate(["/requirement-list"]);

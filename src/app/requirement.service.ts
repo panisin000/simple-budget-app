@@ -38,7 +38,10 @@ export class RequirementService {
     const url = 'http://localhost:3000/requirements';
     return this.httpClient.delete<void>(`${url}/${id}`);
   }
-  // editRequirement(id:) {
 
-  // }
+  editRequirement(id: number, editRequirement: Requirement): Observable<void> {
+    const url = 'http://localhost:3000/requirements';
+    return this.httpClient.put<void>(`${url}/${id}`, editRequirement);
+  }
+
 }
