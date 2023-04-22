@@ -17,3 +17,10 @@ export const adminGuard = (next: ActivatedRouteSnapshot) => {
     ? true
     : createUrlTreeFromSnapshot(next, ['/auth', 'login']);
 };
+//function same
+export function notLoggedGuard(next: ActivatedRouteSnapshot) {
+  const loggedInUser = inject(AuthService).getLoggedInUser();
+  return loggedInUser
+    ? createUrlTreeFromSnapshot(next, ['/requirement-list'])
+    : true;
+};

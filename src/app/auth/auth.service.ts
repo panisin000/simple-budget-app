@@ -11,8 +11,10 @@ export class AuthService {
 
   // loggedInUser: LoggedInUser | null = null;
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
+  // localStorage `จำทั้งหมด แม้ว่าจะปิด browser ไปแล้ว
+  //sessionStorage จะหายไปเมื่อปิด page นั้น
   setLoggedInUser(loggedInUser: LoggedInUser) {
     sessionStorage.setItem('loggedInUser', JSON.stringify(loggedInUser))
   }
