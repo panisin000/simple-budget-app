@@ -15,13 +15,14 @@
             <!-- <td colspan="3">No data</td> -->
         </tr>
         <tr *ngFor="let r of requirements">
-            <td>{{r.id}}</td>
+            <td>{{r.id| number:"1.0-0"}}</td>
             <td>{{r.title}}</td>
-            <td>{{r.contactMobileNo}}</td>
+            <td>{{contactmobileNoFormat(r.contactMobileNo)}}</td>
         </tr>
     </tbody>
 </table>
-<h1>{{isSmallTable.value }}</h1>
+<hr>
+debug: {{ isSmallTable.value }}
 <label for="makeSmall">
     <input type="checkbox" id="makeSmall" [formControl]="isSmallTable" />
     Make small table
