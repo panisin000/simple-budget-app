@@ -5,17 +5,26 @@
         <div class="m-3">
             <label class="form-label" for="title">Title</label>
             <input type="text" class="form-control" id="title" formControlName="title" />
+            <div class="text-danger" *ngIf="fg.controls.title.errors && fg.controls.title.touched">Title is required
+            </div>
         </div>
         <!-- debug: {{fg.controls.title.errors| json}} -->
-        <div class="text-danger" *ngIf="fg.controls.title.errors && fg.controls.title.touched">Title is required</div>
+
         <div class="m-3">
             <label class="form-label" for="contactMobileNo">Contact Mobile
                 No</label>
             <input type="text" class="form-control" id="contactMobileNo" formControlName="contactMobileNo" />
-            <div class="text-danger" *ngIf="fg.controls.title.errors && fg.controls.contactMobileNo.touched">Contact
+            <div class="text-danger"
+                *ngIf="contactMobileNo.hasError('thMobile') && fg.controls.contactMobileNo.touched">
+                Contact
+                Mobile No is invalid Thai format</div>
+            <div class="text-danger"
+                *ngIf="contactMobileNo.hasError('required') && fg.controls.contactMobileNo.touched">
+                Contact
                 Mobile No is required</div>
         </div>
-        <button type="submit" class="btn btn-primary ms-3" (click)="onSubmit()">
+        <!-- debug:{{}} -->
+        <button type="submit" class="btn btn-primary ms-3" [disabled]="!fg.valid" (click)="onSubmit()">
             Submit
         </button>
         <button class="btn btn-secondary ms-2">Cancel</button>
