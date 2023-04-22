@@ -12,9 +12,16 @@ export class RequirementService {
   constructor(httpClient: HttpClient) {
     this.httpClient = httpClient;
   }
-  getRequirement(): Observable<Requirement[]> {
+  //get all
+  getRequirements(): Observable<Requirement[]> {
     const url = "http://localhost:3000/requirements";
     return this.httpClient.get<Requirement[]>(url)
+  };
+
+  //get by id
+  getRequirementById(id: number): Observable<Requirement> {
+    const url = "http://localhost:3000/requirements";
+    return this.httpClient.get<Requirement>(`${url}/${id}`);
   };
   //   return [
   //     { id: 2000, title: 'USB wire', contactMobileNo: '0123456789' },
@@ -27,8 +34,11 @@ export class RequirementService {
     const url = 'http://localhost:3000/requirements';
     return this.httpClient.post<Requirement>(url, newRequirement);
   }
-  delelteRequirement(id: number): Observable<void>{
+  delelteRequirement(id: number): Observable<void> {
     const url = 'http://localhost:3000/requirements';
     return this.httpClient.delete<void>(`${url}/${id}`);
   }
+  // editRequirement(id:) {
+
+  // }
 }

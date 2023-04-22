@@ -22,7 +22,7 @@ export class RequirementListComponent implements OnInit {
     // requirementService.getRequirement().subscribe(rs => this.requirements = rs);
   }
   ngOnInit(): void {
-    this.requirementService.getRequirement().subscribe(rs => this.requirements = rs);
+    this.requirementService.getRequirements().subscribe(rs => this.requirements = rs);
   }
 
   onAdd(): void {
@@ -31,5 +31,11 @@ export class RequirementListComponent implements OnInit {
   onDelete(id: number): void {
     this.requirementService.delelteRequirement(id).subscribe(rs => this.requirements = this.requirements.filter(v => v.id != id)); //reload data อย่าลืม subscribe ด้วยทุกครั้ง
   }
+  onEdit(id: number): void {
+    // http://localhost:4200/requirement-form/1010
+    this.router.navigate(["/requirement-form", id]);
+
+  }
 }
+
 

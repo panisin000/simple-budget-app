@@ -6,7 +6,8 @@ import { RequirementFormComponent } from './requirement-form/requirement-form.co
 // map url => Component
 const routes: Routes = [
   { path: "requirement-list", component: RequirementListComponent },
-  { path: "requirement-form", component: RequirementFormComponent }
+  { path: "requirement-form", component: RequirementFormComponent },
+  { path: "requirement-form/:id", component: RequirementFormComponent }
 ];
 
 @NgModule({

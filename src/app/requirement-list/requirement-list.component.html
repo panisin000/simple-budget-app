@@ -20,7 +20,7 @@
         </tr>
         <tr *ngFor="let r of requirements">
             <td><i class="bi bi-trash" (click)="onDelete(r.id)"> </i></td>
-            <td>{{r.id| number:"1.0-0"}}</td>
+            <td><i class="bi bi-pencil" (click)="onEdit(r.id)"> </i></td>
             <td>{{r.id| number:"1.0-0"}}</td>
             <td>{{r.title}}</td>
             <td>{{r.contactMobileNo | mobileFormat}}</td>
