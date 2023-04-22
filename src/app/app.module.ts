@@ -7,12 +7,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MobileFormatPipe } from './mobile-format.pipe';
 import { RequirementFormComponent } from './requirement-form/requirement-form.component';
+import { RequirementApprovalComponent } from './requirement-approval/requirement-approval.component';
 @NgModule({
   declarations: [
     AppComponent,
     RequirementListComponent,
     MobileFormatPipe,
-    RequirementFormComponent
+    RequirementFormComponent,
+    RequirementApprovalComponent
   ],
   imports: [
     BrowserModule,

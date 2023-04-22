@@ -43,5 +43,12 @@ export class RequirementService {
     const url = 'http://localhost:3000/requirements';
     return this.httpClient.put<void>(`${url}/${id}`, editRequirement);
   }
-
+  approveRequirement(id: number) {
+    const url = 'http://localhost:3000/requirements';
+    return this.httpClient.patch(`${url}/${id}`, { status: "A" });
+  }
+  rejectRequirement(id: number) {
+    const url = 'http://localhost:3000/requirements';
+    return this.httpClient.patch(`${url}/${id}`, { status: "R" });
+  }
 }
