@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Requirement } from '../requirement';
 import { RequirementService } from '../requirement.service';
 import { FormControl } from '@angular/forms';
-import { mobileFormat } from '../mobile-format';
 import { Router } from '@angular/router';
 
 

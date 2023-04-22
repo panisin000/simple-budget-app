@@ -55,4 +55,11 @@ export class RequirementFormComponent implements OnInit {
     this.router.navigate(["/requirement-list"]);
   }
 
+  confirmLeaveForm(): boolean {
+    if (this.fg.touched) {
+      return confirm("Leave form ?");
+
+    }
+    return true
+  }
 }
