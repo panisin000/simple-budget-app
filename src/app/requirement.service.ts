@@ -22,4 +22,9 @@ export class RequirementService {
   //     { id: 2002, title: 'USB C', contactMobileNo: '0555555555' },
   //     { id: 2003, title: 'USB B', contactMobileNo: '1234567890' }]
   // };
+  // requirement.service
+  addRequirement(newRequirement: Requirement): Observable<Requirement> {
+    const url = 'http://localhost:3000/requirements';
+    return this.httpClient.post<Requirement>(url, newRequirement);
+  }
 }
