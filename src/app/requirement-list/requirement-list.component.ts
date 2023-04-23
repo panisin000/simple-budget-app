@@ -34,7 +34,12 @@ export class RequirementListComponent implements OnInit {
     // http://localhost:4200/requirement-form/1010
     this.router.navigate(["/requirement-form", id]);
 
+  }  onView(id: number): void {
+    // http://localhost:4200/requirement-view/1010
+    this.router.navigate(["/requirement-view", id]);
+
   }
+  
 }
 
 

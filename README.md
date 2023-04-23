@@ -1,4 +1,11 @@
 # SimpleBudgetApp
+step1: npm install -g @angular/cli
+
+add style
+npm i bootstrap@5.3.0-alpha3
+npm i bootstrap-icons
+
+step2: npm run start
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
 

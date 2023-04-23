@@ -18,6 +18,7 @@ export class RequirementFormComponent implements OnInit {
   title = new FormControl("", Validators.required)
   contactMobileNo = new FormControl("", [Validators.required, thMobile])
   editId = 0;
+  onSubmitBool=false;
   fg = new FormGroup({
 
     title: this.title,
@@ -38,6 +39,7 @@ export class RequirementFormComponent implements OnInit {
   }
   onSubmit(): void {
     // const newRequirement = this.fg.value as Requirement;
+    this.onSubmitBool=true;
     if (this.editId) {
       const editRequirement = this.fg.value as Requirement;
       this.requirementService
@@ -56,9 +58,8 @@ export class RequirementFormComponent implements OnInit {
   }
 
   confirmLeaveForm(): boolean {
-    if (this.fg.touched) {
+    if (this.fg.touched && this.onSubmitBool===false) {
       return confirm("Leave form ?");
-
     }
     return true
   }
