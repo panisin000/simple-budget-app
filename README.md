@@ -2,7 +2,9 @@
 step1: npm install -g @angular/cli
 
 add style
+
 npm i bootstrap@5.3.0-alpha3
+
 npm i bootstrap-icons
 
 step2: npm run start
